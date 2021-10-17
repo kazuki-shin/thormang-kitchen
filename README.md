@@ -8,13 +8,41 @@ cd src
 ```
 ```
 git clone https://github.com/kazuki-shin/thormang-kitchen.git \
- && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git \
+ && git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git \
  && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git \
- && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-Utility.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git \
  && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git \
  && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git \
- && git clone https://github.com/ROBOTIS-GIT/humanoid_navigation.git
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC-SENSORs.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git \
+ && git clone https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git \
+ && git clone https://github.com/ROBOTIS-GIT/humanoid_navigation.git 
 ```
+
+```
+sudo apt update && sudo apt-get install -y \
+    ros-kinetic-qt-build \
+    ros-kinetic-map-server \
+    ros-kinetic-nav-msgs \
+    ros-kinetic-humanoid-nav-msgs \
+    ros-kinetic-octomap \
+    ros-kinetic-octomap-msgs \
+    ros-kinetic-octomap-ros \
+    ros-kinetic-octomap-server \
+    ros-kinetic-qt-ros \
+    ros-kinetic-sbpl \
+    ros-kinetic-urg-node \
+    libv4l-dev \
+    ros-kinetic-uvc-camera \
+    madplay mpg321 \
+    libncurses5-dev \
+    && sudo apt-get clean
+```
+
 
 1. Build Docker environment
 ```
