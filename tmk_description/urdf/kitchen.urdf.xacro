@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
-<robot name="open_manipulator_p" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="thormang" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find open_manipulator_p_description)/urdf/materials.xacro"/> 
+  <xacro:include filename="$(find tmk_description)/urdf/materials.xacro"/> 
+
+  <gazebo reference="world"/>
+  <gazebo reference="kitchen_link"/>
 
   <!-- World with kitchen-->
   <link name="world"/>
@@ -15,14 +18,14 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://open_manipulator_p_description/meshes/kitchen.stl"/>
+        <mesh filename="package://tmk_description/meshes/kitchen.stl"/>
       </geometry>
     </visual>
 
     <collision>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://open_manipulator_p_description/meshes/kitchen_simple.stl"/>
+        <mesh filename="package://tmk_description/meshes/kitchen_simple.stl"/>
       </geometry>
     </collision>
   </link>
