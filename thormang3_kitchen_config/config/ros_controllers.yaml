@@ -1,0 +1,91 @@
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: l_arm_group
+  joint_model_group_pose: ready_l_arm
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - l_leg_hip_y
+    - l_leg_hip_r
+    - l_leg_hip_p
+    - l_leg_kn_p
+    - l_leg_an_p
+    - l_leg_an_r
+    - r_leg_hip_y
+    - r_leg_hip_r
+    - r_leg_hip_p
+    - r_leg_kn_p
+    - r_leg_an_p
+    - r_leg_an_r
+    - torso_y
+    - head_y
+    - head_p
+    - l_arm_sh_p1
+    - l_arm_sh_r
+    - l_arm_sh_p2
+    - l_arm_el_y
+    - l_arm_wr_r
+    - l_arm_wr_y
+    - l_arm_wr_p
+    - l_arm_grip
+    - l_arm_grip_1
+    - r_arm_sh_p1
+    - r_arm_sh_r
+    - r_arm_sh_p2
+    - r_arm_el_y
+    - r_arm_wr_r
+    - r_arm_wr_y
+    - r_arm_wr_p
+    - r_arm_grip
+    - r_arm_grip_1
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  - name: l_arm_group_controller
+    action_ns: follow_joint_trajectory
+    default: True
+    type: FollowJointTrajectory
+    joints:
+      - l_arm_sh_p1
+      - l_arm_sh_r
+      - l_arm_sh_p2
+      - l_arm_el_y
+      - l_arm_wr_r
+      - l_arm_wr_y
+      - l_arm_wr_p
+  - name: r_arm_group_controller
+    action_ns: follow_joint_trajectory
+    default: True
+    type: FollowJointTrajectory
+    joints:
+      - r_arm_sh_p1
+      - r_arm_sh_r
+      - r_arm_sh_p2
+      - r_arm_el_y
+      - r_arm_wr_r
+      - r_arm_wr_y
+      - r_arm_wr_p
+  - name: l_arm_gripper_controller
+    action_ns: gripper_action
+    default: True
+    parallel: true
+    type: GripperCommand
+    joints:
+      - l_arm_grip
+      - l_arm_grip_1
+  - name: r_arm_gripper_controller
+    action_ns: gripper_action
+    default: True
+    parallel: true
+    type: GripperCommand
+    joints:
+      - r_arm_grip
+      - r_arm_grip_1

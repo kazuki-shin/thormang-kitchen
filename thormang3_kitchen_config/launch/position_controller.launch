@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find thormang3_kitchen_config)/config/position_controller.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
+	output="screen" ns="/thormang3" args="
+	       		     torso_y_position
+						     l_arm_sh_p1_position
+						     l_arm_sh_r_position
+						     l_arm_sh_p2_position
+						     l_arm_el_y_position
+						     l_arm_wr_r_position
+						     l_arm_wr_y_position
+						     l_arm_wr_p_position
+						     l_arm_grip_position
+						     l_arm_grip_1_position
+						     r_arm_sh_p1_position
+						     r_arm_sh_r_position
+						     r_arm_sh_p2_position
+						     r_arm_el_y_position
+						     r_arm_wr_r_position
+						     r_arm_wr_y_position
+						     r_arm_wr_p_position
+						     r_arm_grip_position
+						     r_arm_grip_1_position
+						     l_leg_hip_y_position
+						     l_leg_hip_r_position
+						     l_leg_hip_p_position
+						     l_leg_kn_p_position
+						     l_leg_an_p_position
+						     l_leg_an_r_position
+						     r_leg_hip_y_position
+						     r_leg_hip_r_position
+						     r_leg_hip_p_position
+						     r_leg_kn_p_position
+						     r_leg_an_p_position
+						     r_leg_an_r_position
+						     head_y_position
+						     head_p_position" />
+</launch>

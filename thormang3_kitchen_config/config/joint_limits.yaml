@@ -1,0 +1,94 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  l_arm_el_y:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_grip:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_grip_1:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_sh_p1:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_sh_p2:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_sh_r:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_wr_p:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_wr_r:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  l_arm_wr_y:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_el_y:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_grip:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_grip_1:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_sh_p1:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_sh_p2:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_sh_r:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_wr_p:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_wr_r:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0
+  r_arm_wr_y:
+    has_velocity_limits: true
+    max_velocity: 6.5
+    has_acceleration_limits: false
+    max_acceleration: 0

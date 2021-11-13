@@ -1,0 +1,33 @@
+<launch>
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find thormang3_kitchen_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="false"/>
+  </include>
+
+  <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
+  <include file="$(find thormang3_kitchen_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="info" value="true"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+  <!-- <remap from="/follow_joint_trajectory" to="/l_arm_group_controller/follow_joint_trajectory"/> -->
+
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node> -->
+
+  <!-- State Publisher and Controller Spawner -->
+  <include file="$(find thormang3_kitchen_config)/launch/ros_controllers.launch"/>
+
+  <include file="$(find thormang3_kitchen_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+</launch>

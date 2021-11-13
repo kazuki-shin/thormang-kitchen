@@ -1,0 +1,30 @@
+l_arm_group_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - l_arm_sh_p1
+    - l_arm_sh_r
+    - l_arm_sh_p2
+    - l_arm_el_y
+    - l_arm_wr_r
+    - l_arm_wr_y
+    - l_arm_wr_p
+r_arm_group_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - r_arm_sh_p1
+    - r_arm_sh_r
+    - r_arm_sh_p2
+    - r_arm_el_y
+    - r_arm_wr_r
+    - r_arm_wr_y
+    - r_arm_wr_p
+l_arm_gripper_controller:
+  type: GripperCommand
+  joints:
+    - l_arm_grip
+    - l_arm_grip_1
+r_arm_gripper_controller:
+  type: GripperCommand
+  joints:
+    - r_arm_grip
+    - r_arm_grip_1

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: thormang3_description
+    relative_path: urdf/thormang3.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/thormang3.srdf
+  CONFIG:
+    author_name: Qingxuan Guo
+    author_email: tsinghintg@outlook.com
+    generated_timestamp: 1636659447
