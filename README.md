@@ -1,10 +1,10 @@
 # THORMANG Kitchen
 
-## How to Run
+## Setup work enviornment on new machine
 
 We use a ROS1 build environment. This project can easily be made to interface with ROS1 for visualization or for running on a real or simulated robot.
 ```
-cd src
+cd && mkdir -p catkin_ws/src && cd catkin_ws/src
 ```
 ```
 git clone https://github.com/kazuki-shin/thormang-kitchen.git \
@@ -43,39 +43,52 @@ sudo apt update && sudo apt-get install -y \
     && sudo apt-get clean
 ```
 
-
-1. Build Docker environment
 ```
-docker build -t thormang-kitchen thormang-kitchen
+cd ~/catkin_ws && catkin_make && source devel/setup.bash 
 ```
 
-2. Open a terminal inside the environment with this repository mounted
-```
-docker run -it -v `pwd`:/opt/catkin_ws/src thormang-kitchen
+## Running instructions (node launch order matters!)
 
-or 
+set static ip
+```
+ip info
+```
+power on router client and connect to thormang wifi 
 
-thormang-kitchen/gui-docker -it -v `pwd`:/opt/catkin_ws/src thormang-kitchen
-thormang-kitchen/gui-docker -c <container>
+
+
+### 1. Perception PC
+```
+ssh robotis@10.17.3.35
+pass: 111111
+roscore
+thormang sensor node
+```
+### 2. Motion PC 
+```
+ssh robotis@10.17.3.30
+pass: 111111
+thormang manager
+```
+### 3. Operating PC
+```
+Vision node
+command node
 ```
 
-3. Go to `/opt/catkin_ws`, the mounted directory, build the package, and configure ROS
+clock synchronization 
+add to bashrc
+```
+export ROS_MASTER_URI=http://10.17.3.35:11311
+export ROS_HOSTNAME=<your IP>
 ```
 
-cd /opt/catkin_ws
-catkin_make
-source devel/setup.bash
-```
-
-4. Run the executable
-```
-rviz rviz
-```
 
 ## Notes
 Change line 23 in humanoid_navigation/humanoid_localization/src/HumanoidLocalization.cpp
  from `include <pcl/filters/uniform_sampling.h>` to `include <pcl/keypoints/uniform_sampling.h>`
 
-## Commands
-ssh -l robotis 10.17.3.30
-ssh -l robotis 10.17.3.35
+Useful tools
+- rqt_graph
+- rqt_plot
+
